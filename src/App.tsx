@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, ChevronRight, Facebook, Twitter, Instagram, Linkedin, Youtube, Send, Eye, Target, Award, CheckCircle2, Users, Briefcase, Building2, MessageSquare, Globe, Clock, ShieldCheck, Zap, Handshake, Menu, X, Ghost } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import CompanyPage from './components/CompanyPage';
@@ -14,15 +14,15 @@ import ContactPage from './components/ContactPage';
 const TopBar = () => (
   <div className="bg-primary text-white py-2 px-4 text-sm font-medium">
     <div className="container-custom flex flex-col md:flex-row justify-between items-center gap-2">
-      <p className="uppercase tracking-wider">HI, WE'RE HERE IF YOU NEED ANY ASSISTANCE?</p>
-      <div className="flex items-center gap-6">
+      <p className="uppercase tracking-wider text-xs md:text-sm text-center md:text-left">HI, WE'RE HERE IF YOU NEED ANY ASSISTANCE?</p>
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
         <div className="flex items-center gap-2">
-          <Phone size={16} />
-          <span>+971 9 228 8633</span>
+          <Phone size={14} className="md:size-16" />
+          <span className="text-xs md:text-sm">+971 9 228 8633</span>
         </div>
         <div className="flex items-center gap-2">
-          <Mail size={16} />
-          <span>info@tasheelconsultancy.com</span>
+          <Mail size={14} className="md:size-16" />
+          <span className="text-xs md:text-sm break-all">info@tasheelconsultancy.com</span>
         </div>
       </div>
     </div>
@@ -112,44 +112,65 @@ const Navbar = ({ currentView, setView }: { currentView: string, setView: (view:
   );
 };
 
-const Hero = () => (
-  <section className="relative h-[600px] overflow-hidden">
-    <div className="absolute inset-0 bg-black/40 z-10" />
-    <img 
-      src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920" 
-      alt="Hero Background" 
-      className="absolute inset-0 w-full h-full object-cover"
-      referrerPolicy="no-referrer"
-    />
-    <div className="container-custom relative z-20 h-full flex flex-col justify-center">
-      <motion.div 
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className="max-w-2xl text-white"
-      >
-        <h1 className="text-7xl md:text-8xl font-bold leading-tight mb-4">
-          Legal<br />Translation
-        </h1>
-        <p className="text-2xl md:text-3xl font-light tracking-wide">
-          Accurate and certified translations
-        </p>
-      </motion.div>
-    </div>
-    
-    {/* Decorative elements from image */}
-    <div className="absolute bottom-10 right-10 z-20 flex gap-2">
-      {[1, 2, 3, 4].map(i => (
-        <div key={i} className="w-4 h-4 bg-primary rotate-45" />
-      ))}
-    </div>
-  </section>
-);
+const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+    "/First.jpeg",
+    "/Second.jpeg", 
+    "/Third.jpeg",
+    "/Fouth.jpeg",
+    "/fifth.jpeg"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 7000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="relative h-[220px] md:h-[600px] lg:h-[800px] overflow-hidden bg-white">
+      <div className="absolute inset-0">
+        <img 
+          src={slides[currentSlide]} 
+          alt={`Hero Banner ${currentSlide + 1}`}
+          className="w-full h-full object-cover md:h-auto lg:h-auto"
+        />
+        <div className="container-custom relative z-20 h-full flex flex-col justify-center">
+          <div className="max-w-2xl text-white">
+            <h1 className="text-7xl md:text-8xl font-bold leading-tight mb-4">
+              Tasheel<br />Consultancy
+            </h1>
+            <p className="text-2xl md:text-3xl font-light tracking-wide">
+              Your Trusted Business Partner
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      {/* Slide indicators hidden */}
+      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex gap-2">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentSlide(idx)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              idx === currentSlide ? 'bg-white w-8' : 'bg-white/50'
+            }`}
+          />
+        ))}
+      </div> */}
+    </section>
+  );
+};
 
 const Stats = () => (
-  <section className="bg-primary py-20 relative">
+  <section className="bg-primary py-20">
     <div className="container-custom">
-      <div className="bg-white rounded-2xl p-12 shadow-2xl -mt-40 relative z-30">
+      <div className="bg-white rounded-2xl p-12 shadow-2xl relative z-30">
         <h2 className="text-4xl font-bold text-center mb-16 text-[#333] uppercase tracking-tight">
           Entrepreneur Makers Since 2010
         </h2>
@@ -177,16 +198,16 @@ const About = () => (
       <div className="flex flex-col lg:flex-row gap-16 items-center">
         <div className="lg:w-1/2">
           <span className="text-primary font-bold text-lg">"Let's Start</span>
-          <h2 className="text-6xl font-bold text-[#333] mb-6 uppercase tracking-tighter">A Business"</h2>
+          <h2 className="text-4xl md:text-6xl font-bold text-[#333] mb-6 uppercase tracking-tighter">A Business"</h2>
           <span className="text-primary font-bold mb-8 uppercase tracking-wider">A Super Easy Experience For You!</span>
           <p className="text-gray-600 leading-relaxed mb-10 text-lg">
             A global network of independent firms specialized in business networks seek to help entrepreneurs and firms, providing services with a team of business advisors by facilitating inter country business. Our team of experts can provide you with a wide variety of business setup services, including legal registration of your company as well as legal documentation to ensure your business complies in protecting your business interests. By choosing our business setup, we can assure you of high financial savings and a professional management services. We are well aware when it comes to the corporate sector for the provision of reliable and efficient services.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <button className="bg-[#333] text-white px-8 py-4 font-bold uppercase text-sm tracking-widest hover:bg-black transition-colors">
+          <div className="flex flex-col gap-4">
+            <button className="w-full bg-[#333] text-white px-8 py-4 font-bold uppercase text-sm tracking-widest hover:bg-black transition-colors text-center">
               Free Consultations
             </button>
-            <button className="border-2 border-[#333] text-[#333] px-8 py-4 font-bold uppercase text-sm tracking-widest flex items-center gap-2 hover:bg-[#333] hover:text-white transition-all">
+            <button className="w-full border-2 border-[#333] text-[#333] px-8 py-4 font-bold uppercase text-sm tracking-widest flex items-center justify-center gap-2 hover:bg-[#333] hover:text-white transition-all text-center">
               Learn More <ChevronRight size={18} />
             </button>
           </div>
