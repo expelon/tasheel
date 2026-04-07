@@ -65,7 +65,7 @@ const GalleryPage = () => {
   return (
     <div className="flex flex-col">
       {/* Banner */}
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[200px] md:h-[300px] lg:h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-black/60 z-10" />
         <img 
           src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=1920" 
@@ -73,14 +73,14 @@ const GalleryPage = () => {
           className="absolute inset-0 w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
-        <h1 className="relative z-20 text-7xl font-bold text-white uppercase tracking-tight">Gallery</h1>
+        <h1 className="relative z-20 text-3xl md:text-5xl lg:text-7xl font-bold text-white uppercase tracking-tight">Gallery</h1>
       </section>
 
       {/* Videos Section */}
       <section className="py-24 bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <span className="text-[#c59d5f] font-bold text-lg mb-4 block uppercase tracking-widest">VIDEO GALLERY</span>
+            <span className="text-primary font-bold text-lg mb-4 block uppercase tracking-widest">VIDEO GALLERY</span>
             <h2 className="text-5xl font-bold text-[#333] uppercase tracking-tighter">Our Latest Features</h2>
           </div>
 
@@ -102,7 +102,7 @@ const GalleryPage = () => {
                     allowFullScreen
                   ></iframe>
                 </div>
-                <h3 className="text-lg font-bold text-[#333] group-hover:text-[#c59d5f] transition-colors line-clamp-2">
+                <h3 className="text-lg font-bold text-[#333] group-hover:text-primary transition-colors line-clamp-2">
                   {video.title}
                 </h3>
               </motion.div>
@@ -116,9 +116,9 @@ const GalleryPage = () => {
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="lg:w-1/2">
-              <span className="text-[#c59d5f] font-bold text-lg mb-4 block uppercase tracking-widest">SOCIAL MEDIA</span>
+              <span className="text-primary font-bold text-lg mb-4 block uppercase tracking-widest">PHOTO GALLERY</span>
               <h2 className="text-5xl font-bold text-[#333] mb-8 uppercase tracking-tighter leading-tight">
-                Follow Us on <span className="text-[#c59d5f]">Instagram</span>
+                Follow Us on <span className="text-primary">Instagram</span>
               </h2>
               <p className="text-gray-600 text-lg mb-10 leading-relaxed">
                 Stay updated with our latest news, events, and business insights. Join our community on Instagram and be part of our journey.
@@ -127,7 +127,7 @@ const GalleryPage = () => {
                 href="https://www.instagram.com/tasheelconsultancy/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-[#333] text-white px-10 py-4 font-bold uppercase tracking-widest hover:bg-[#c59d5f] transition-all rounded-sm"
+                className="inline-flex items-center gap-3 bg-primary text-white px-10 py-4 font-bold uppercase tracking-widest hover:bg-secondary transition-colors rounded-sm"
               >
                 <Instagram size={24} />
                 @tasheelconsultancy
@@ -159,9 +159,9 @@ const GalleryPage = () => {
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-12">
             <div className="lg:w-1/2">
-              <span className="text-[#c59d5f] font-bold text-lg mb-4 block uppercase tracking-widest">YOUTUBE CHANNEL</span>
+              <span className="text-primary font-bold text-lg mb-4 block uppercase tracking-widest">YOUTUBE CHANNEL</span>
               <h2 className="text-5xl font-bold text-[#333] mb-8 uppercase tracking-tighter leading-tight">
-                Subscribe to Our <span className="text-[#c59d5f]">YouTube</span>
+                Subscribe to Our <span className="text-primary">YouTube</span>
               </h2>
               <p className="text-gray-600 text-lg mb-10 leading-relaxed">
                 Watch our latest business insights, success stories, and expert consultations. Subscribe to our channel to stay ahead in the business world.
@@ -170,7 +170,7 @@ const GalleryPage = () => {
                 href="https://www.youtube.com/@tasheelconsultancy1076" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-[#333] text-white px-10 py-4 font-bold uppercase tracking-widest hover:bg-[#c59d5f] transition-all rounded-sm"
+                className="inline-flex items-center gap-3 bg-primary text-white px-10 py-4 font-bold uppercase tracking-widest hover:bg-secondary transition-colors rounded-sm"
               >
                 <Youtube size={24} />
                 Tasheel Consultancy
