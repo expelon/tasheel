@@ -163,21 +163,21 @@ const Hero = () => {
 
 const Stats = () => (
   <section className="bg-primary py-20">
-    <div className="container-custom">
-      <div className="bg-white rounded-2xl p-12 shadow-2xl relative z-30">
-        <h2 className="text-4xl font-bold text-center mb-16 text-[#333] uppercase tracking-tight">
+    <div className="px-4">
+      <div className="bg-white rounded-2xl p-6 md:p-12 shadow-2xl relative z-30">
+        <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-16 text-[#333] uppercase tracking-tight">
           Entrepreneur Makers Since 2010
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {[
             { value: "1.5M", label: "HAPPY CLIENTS", color: "bg-primary" },
             { value: "16+", label: "YEARS OF EXPERIENCE", color: "bg-[#4a4a4a]" },
             { value: "90+", label: "COMPANY INCORPORATION", color: "bg-primary" },
             { value: "90+", label: "CONSULTATION", color: "bg-[#4a4a4a]" }
           ].map((stat, idx) => (
-            <div key={idx} className={`${stat.color} text-white p-8 rounded-2xl text-center flex flex-col justify-center items-center h-48`}>
-              <span className="text-5xl font-bold mb-2">{stat.value}</span>
-              <span className="text-sm font-bold uppercase tracking-wider">{stat.label}</span>
+            <div key={idx} className={`${stat.color} text-white p-4 md:p-8 rounded-2xl text-center flex flex-col justify-center items-center aspect-3/2`}>
+              <span className="text-3xl md:text-5xl font-bold mb-2">{stat.value}</span>
+              <span className="text-xs md:text-sm font-bold uppercase tracking-wider">{stat.label}</span>
             </div>
           ))}
         </div>
