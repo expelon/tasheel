@@ -210,7 +210,7 @@ const About = () => (
         <div className="lg:w-1/2 relative">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
-              <img src="https://images.unsplash.com/photo-1600880212340-02d956371844?auto=format&fit=crop&q=80&w=400&h=400" alt="Team" className="rounded-full w-full aspect-square object-cover" referrerPolicy="no-referrer" />
+              <img src="/bg2.webp" alt="Team" className="rounded-full w-full aspect-square object-cover" />
               <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400" alt="Meeting" className="rounded-full w-full aspect-square object-cover" referrerPolicy="no-referrer" />
             </div>
             <div className="space-y-4 pt-12">
