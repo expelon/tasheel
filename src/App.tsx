@@ -281,8 +281,8 @@ const Partners = () => (
   <section className="py-24 bg-white overflow-hidden">
     <div className="container-custom">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-primary uppercase tracking-widest mb-2">Our Associated UAE</h2>
-        <h3 className="text-6xl font-bold text-[#333] uppercase tracking-tighter">Government Departments</h3>
+        <h2 className="text-2xl md:text-4xl font-bold text-primary uppercase tracking-widest mb-2">Our Associated UAE</h2>
+        <h3 className="text-3xl md:text-6xl font-bold text-[#333] uppercase tracking-tighter">Government Departments</h3>
       </div>
       
       {/* Auto-scrolling logos container */}
@@ -313,11 +313,11 @@ const Partners = () => (
             { name: "RTA", logo: "/Roads-and-Transport-Authority-RTA.jpg" },
             { name: "UAE Emblem", logo: "/Emblem-of-the-United-Arab-Emirates.jpg" }
           ].map((partner, idx) => (
-            <div key={idx} className="shrink-0 mx-8">
+            <div key={idx} className="shrink-0 mx-4 md:mx-8">
               <img 
                 src={partner.logo} 
                 alt={partner.name} 
-                className="h-48 object-contain transition-all cursor-pointer"
+                className="h-12 md:h-16 w-auto object-contain transition-all cursor-pointer"
               />
             </div>
           ))}
