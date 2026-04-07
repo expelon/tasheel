@@ -5,15 +5,14 @@ const ContactPage = () => {
   return (
     <div className="flex flex-col">
       {/* Banner */}
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[200px] md:h-[300px] lg:h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-black/60 z-10" />
         <img 
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920" 
+          src="/bg.webp" 
           alt="Contact Banner" 
           className="absolute inset-0 w-full h-full object-cover"
-          referrerPolicy="no-referrer"
         />
-        <h1 className="relative z-20 text-7xl font-bold text-white uppercase tracking-tight">Contact us</h1>
+        <h1 className="relative z-20 text-3xl md:text-5xl lg:text-7xl font-bold text-white uppercase tracking-tight text-center px-4">Contact us</h1>
       </section>
 
       {/* Address Cards Section */}
@@ -33,16 +32,16 @@ const ContactPage = () => {
                   P.O Box :3869 , Twin Towers M1 Fujairah, Opposite National Hypermarket -Fujairah UAE
                 </p>
                 <div className="flex flex-col items-center gap-2">
-                  <div className="bg-[#333] p-3 rounded-full text-white mb-2">
+                  <div className="bg-primary p-6 rounded-full text-white mb-6">
                     <Phone size={20} />
                   </div>
                   <span className="font-medium">+971 50 608 7833</span>
                   <span className="font-medium">+971 9 201 1829</span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <span className="text-[#c59d5f] font-bold">creative@tasheelconsultancy.com</span>
+                  <span className="text-primary font-bold">creative@tasheelconsultancy.com</span>
                 </div>
-                <button className="mt-4 bg-[#333] text-white px-10 py-3 font-bold uppercase tracking-widest hover:bg-[#c59d5f] transition-all rounded-sm">
+                <button className="mt-4 bg-primary text-white px-10 py-3 font-bold uppercase tracking-widest hover:bg-primary transition-all rounded-sm">
                   LOCATE US
                 </button>
               </div>
@@ -62,16 +61,16 @@ const ContactPage = () => {
                   Merashid, NearLabour& ImmigrationOffice, Fujairah-UAE
                 </p>
                 <div className="flex flex-col items-center gap-2">
-                  <div className="bg-[#333] p-3 rounded-full text-white mb-2">
+                  <div className="bg-primary p-6 rounded-full text-white mb-6">
                     <Phone size={20} />
                   </div>
                   <span className="font-medium">+971 9 228 8633</span>
                   <span className="font-medium">+971 56 606 8833</span>
                 </div>
                 <div className="flex flex-col items-center gap-2">
-                  <span className="text-[#c59d5f] font-bold">fujairah@tasheelconsultancy.com</span>
+                  <span className="text-primary font-bold">fujairah@tasheelconsultancy.com</span>
                 </div>
-                <button className="mt-4 bg-[#333] text-white px-10 py-3 font-bold uppercase tracking-widest hover:bg-[#c59d5f] transition-all rounded-sm">
+                <button className="mt-4 bg-primary text-white px-10 py-3 font-bold uppercase tracking-widest hover:bg-primary transition-all rounded-sm">
                   LOCATE US
                 </button>
               </div>
@@ -98,55 +97,55 @@ const ContactPage = () => {
               <h2 className="text-6xl font-bold text-[#333] mb-12 uppercase tracking-tighter">Get in touch</h2>
               <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label className="font-bold text-[#333] uppercase text-sm tracking-widest">Name</label>
+                  <label className="font-bold text-gray-600 uppercase text-sm tracking-widest">Name</label>
                   <input 
                     type="text" 
                     placeholder="Name" 
-                    className="bg-white border-none p-4 rounded-sm shadow-sm focus:ring-2 focus:ring-[#c59d5f] outline-none"
+                    className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="font-bold text-[#333] uppercase text-sm tracking-widest">Company</label>
+                  <label className="font-bold text-gray-600 uppercase text-sm tracking-widest">Company</label>
                   <input 
                     type="text" 
                     placeholder="Company" 
-                    className="bg-white border-none p-4 rounded-sm shadow-sm focus:ring-2 focus:ring-[#c59d5f] outline-none"
+                    className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="font-bold text-[#333] uppercase text-sm tracking-widest">Phone</label>
+                  <label className="font-bold text-gray-600 uppercase text-sm tracking-widest">Phone</label>
                   <input 
                     type="text" 
                     placeholder="Phone" 
-                    className="bg-white border-none p-4 rounded-sm shadow-sm focus:ring-2 focus:ring-[#c59d5f] outline-none"
+                    className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="font-bold text-[#333] uppercase text-sm tracking-widest">Email</label>
+                  <label className="font-bold text-gray-600 uppercase text-sm tracking-widest">Email</label>
                   <input 
                     type="email" 
                     placeholder="Email" 
-                    className="bg-white border-none p-4 rounded-sm shadow-sm focus:ring-2 focus:ring-[#c59d5f] outline-none"
+                    className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div className="flex flex-col gap-2 md:col-span-2">
-                  <label className="font-bold text-[#333] uppercase text-sm tracking-widest">Subject</label>
+                  <label className="font-bold text-gray-600 uppercase text-sm tracking-widest">Subject</label>
                   <input 
                     type="text" 
                     placeholder="Subject" 
-                    className="bg-white border-none p-4 rounded-sm shadow-sm focus:ring-2 focus:ring-[#c59d5f] outline-none"
+                    className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div className="flex flex-col gap-2 md:col-span-2">
-                  <label className="font-bold text-[#333] uppercase text-sm tracking-widest">Message</label>
+                  <label className="font-bold text-gray-600 uppercase text-sm tracking-widest">Message</label>
                   <textarea 
                     placeholder="Message" 
                     rows={6}
-                    className="bg-white border-none p-4 rounded-sm shadow-sm focus:ring-2 focus:ring-[#c59d5f] outline-none resize-none"
+                    className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary resize-none"
                   ></textarea>
                 </div>
                 <div className="md:col-span-2">
-                  <button className="w-full bg-[#333] text-white py-5 font-bold uppercase tracking-[0.2em] hover:bg-black transition-all">
+                  <button className="w-full bg-primary text-white py-5 font-bold uppercase tracking-[0.2em] hover:bg-primary transition-all">
                     SEND
                   </button>
                 </div>
@@ -155,7 +154,7 @@ const ContactPage = () => {
 
             {/* Info Side */}
             <div className="lg:w-2/5 flex flex-col justify-center">
-              <span className="text-[#c59d5f] font-bold text-lg mb-4 block uppercase tracking-widest">MORE INFORMATION?</span>
+              <span className="text-primary font-bold text-lg mb-4 block uppercase tracking-widest">MORE INFORMATION?</span>
               <h3 className="text-5xl font-bold text-[#333] mb-8 uppercase tracking-tighter leading-tight">
                 Connect with Us for Expert Business Support
               </h3>
@@ -165,7 +164,7 @@ const ContactPage = () => {
 
               <div className="space-y-8">
                 <div className="flex items-center gap-6 group">
-                  <div className="w-16 h-16 bg-[#c59d5f] rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                     <Mail size={28} />
                   </div>
                   <div>
@@ -175,7 +174,7 @@ const ContactPage = () => {
                 </div>
 
                 <div className="flex items-center gap-6 group">
-                  <div className="w-16 h-16 bg-[#c59d5f] rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                     <Phone size={28} />
                   </div>
                   <div>
