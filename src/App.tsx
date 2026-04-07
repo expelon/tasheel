@@ -12,16 +12,16 @@ import GalleryPage from './components/GalleryPage';
 import ContactPage from './components/ContactPage';
 
 const TopBar = () => (
-  <div className="bg-primary text-white py-2 px-4 text-sm font-medium">
+  <div className="bg-primary text-white py-2 md:py-4 px-4 text-sm font-medium">
     <div className="container-custom flex flex-col md:flex-row justify-between items-center gap-2">
       <p className="uppercase tracking-wider text-xs md:text-sm text-center md:text-left">HI, WE'RE HERE IF YOU NEED ANY ASSISTANCE?</p>
       <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
         <div className="flex items-center gap-2">
-          <Phone size={14} className="md:size-16" />
+          <Phone size={4} className="md:size-6" />
           <span className="text-xs md:text-sm">+971 9 228 8633</span>
         </div>
         <div className="flex items-center gap-2">
-          <Mail size={14} className="md:size-16" />
+          <Mail size={4} className="md:size-6" />
           <span className="text-xs md:text-sm break-all">info@tasheelconsultancy.com</span>
         </div>
       </div>
@@ -53,18 +53,12 @@ const Navbar = ({ currentView, setView }: { currentView: string, setView: (view:
       <div className="container-custom flex justify-between items-center">
         <div className="flex flex-col">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavClick('home')}>
-            <div className="w-12 h-12 bg-primary flex items-center justify-center rounded-sm">
-              <Building2 className="text-white" size={32} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold tracking-tighter text-[#333]">TASHEEL</span>
-              <span className="text-[10px] tracking-[0.2em] text-primary font-bold -mt-1 uppercase">Consultancy</span>
-            </div>
+            <img src="/nav-logo.png" alt="Tasheel Consultancy" className="h-auto w-auto max-h-12" />
           </div>
         </div>
         
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-8 font-bold text-[#333] uppercase text-sm">
+        <div className="hidden lg:flex items-center gap-8 font-bold text-[#333] uppercase text-lg">
           {navLinks.map((link) => (
             <button 
               key={link.id}
@@ -273,41 +267,12 @@ const VisionMission = () => (
 
 const WhyChoose = () => (
   <section className="py-24 bg-gray-50">
-    <div className="container-custom">
-      <h2 className="text-5xl font-bold text-center mb-20 text-[#333] uppercase tracking-tight">
-        Why Choose <span className="text-primary">Tasheel?</span>
-      </h2>
-      
-      <div className="flex flex-col lg:flex-row gap-8">
-        <div className="lg:w-1/3 bg-linear-to-br from-[#4a4a4a] to-primary p-12 rounded-3xl text-white flex flex-col justify-center">
-          <h3 className="text-4xl font-bold mb-6 leading-tight">Your Trusted Partner in Progress</h3>
-          <p className="text-lg opacity-90 leading-relaxed">
-            Experience expert solutions, clear communication, and a commitment you can trust. From business setup to sustained success, we guide you with transparency, efficiency, and care.
-          </p>
-        </div>
-        
-        <div className="lg:w-2/3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {[
-            { icon: <Users />, label: "Large Network Of Connections" },
-            { icon: <Clock />, label: "Many Years Of Experience" },
-            { icon: <ShieldCheck />, label: "Expertise In The Local Industry" },
-            { icon: <Users />, label: "Professional Team" },
-            { icon: <Zap />, label: "Efficient And Costeffective Investment" },
-            { icon: <Handshake />, label: "Flexibility For The Ideal Satisfaction Of Needs" },
-            { icon: <Users />, label: "Specialized Personnel" },
-            { icon: <Building2 />, label: "Adaptability To The Operation Processes Of The Customers" },
-            { icon: <Send />, label: "Flexibility In Mode Of Delivery" },
-            { icon: <Award />, label: "Dedication To The Customers" }
-          ].map((item, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center text-center group hover:shadow-md transition-shadow">
-              <div className="bg-[#4a4a4a] p-3 rounded-lg text-white mb-4 group-hover:bg-primary transition-colors">
-                {item.icon}
-              </div>
-              <span className="text-[10px] font-bold uppercase text-[#333] leading-tight">{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+    <div className="px-4">
+      <img 
+        src="/why-choose.jpg" 
+        alt="Why Choose Tasheel" 
+        className="w-full h-auto object-cover"
+      />
     </div>
   </section>
 );
@@ -429,20 +394,16 @@ const Ownership = () => (
 
 const Footer = ({ setView }: { setView: (view: string) => void }) => (
   <footer className="bg-linear-to-r from-[#4a4a4a] to-primary text-white pt-24 pb-10">
-    <div className="container-custom">
+    <div className="px-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-20">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col items-start">
-            <Building2 className="text-white mb-4" size={80} strokeWidth={1} />
-            <div className="flex flex-col">
-              <span className="text-5xl font-bold tracking-tighter leading-none">TASHEEL</span>
-              <span className="text-sm tracking-[0.3em] text-white/80 font-bold mt-1 uppercase">Consultancy</span>
-            </div>
+            <img src="/logo.png" alt="Tasheel Consultancy" className="mb-4 h-32 w-auto" />
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex gap-2 overflow-x-auto">
             {[
               { Icon: Facebook, href: "https://www.facebook.com/TasheelConsultancy" },
-              { Icon: Twitter, href: "https://x.com/TasheelConsultancy" },
+              { Icon: X, href: "https://x.com/TasheelConsultancy" },
               { Icon: Instagram, href: "https://www.instagram.com/tasheelconsultancy?igsh=eTZ0ejV1dWtuY2Nx" },
               { Icon: Linkedin, href: "https://www.linkedin.com/company/tasheel-consultancy/" },
               { Icon: Ghost, href: "https://www.snapchat.com/Tasheel%20Consultancy" },

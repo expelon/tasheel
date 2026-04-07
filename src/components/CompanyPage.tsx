@@ -27,7 +27,7 @@ const CompanyPage = () => {
           />
           <div className="absolute inset-0 bg-white/10 mix-blend-overlay" />
         </div>
-        <div className="lg:w-1/2 bg-[#c59d5f] p-16 lg:p-24 flex flex-col justify-center text-white relative">
+        <div className="lg:w-1/2 bg-primary p-16 lg:p-24 flex flex-col justify-center text-white relative">
           <div className="absolute top-10 right-10 opacity-10">
             <span className="text-[200px] font-bold leading-none">?</span>
           </div>
@@ -52,21 +52,21 @@ const CompanyPage = () => {
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="container-custom">
           <div className="max-w-4xl">
-            <span className="text-[#c59d5f] font-bold text-lg mb-4 block uppercase tracking-widest">WHO WE ARE</span>
+            <span className="text-primary font-bold text-lg mb-4 block uppercase tracking-widest">WHO WE ARE</span>
             <h2 className="text-6xl font-bold text-[#333] mb-8 uppercase tracking-tighter leading-tight">
               Empowering Entrepreneurs<br />with Financial Expertise.
             </h2>
-            <p className="text-2xl italic text-gray-400 mb-12 border-l-4 border-[#c59d5f] pl-6 py-2">
+            <p className="text-2xl italic text-gray-400 mb-12 border-l-4 border-primary pl-6 py-2">
               We Have Been Serving Our Community Since 2010. We Take Pride In Our Work, With Over TEN Years Of Experience !
             </p>
             <p className="text-gray-600 text-lg leading-relaxed mb-10">
               All our partners are nationally and internationally renowned experts in their fields, able to provide professional advice, knowledge and support for all our clients' with many years of experience. Our results are current, relevant and immediately applicable to our clients work setting. We have been serving our community since 2010. With over TEN YEARS of our vast experience, qualified staff and excellent coordination and planning skills, guaranteeing you 100% satisfaction.
             </p>
             <div className="flex gap-4">
-              <button className="bg-[#333] text-white px-8 py-4 font-bold uppercase text-sm tracking-widest hover:bg-black transition-colors">
+              <button className="bg-primary text-white px-8 py-4 font-bold uppercase text-sm tracking-widest hover:bg-black transition-colors">
                 Free Consultations
               </button>
-              <button className="border-2 border-[#333] text-[#333] px-8 py-4 font-bold uppercase text-sm tracking-widest flex items-center gap-2 hover:bg-[#333] hover:text-white transition-all">
+              <button className="border-2 border-primary text-primary px-8 py-4 font-bold uppercase text-sm tracking-widest flex items-center gap-2 hover:bg-primary hover:text-white transition-all">
                 Learn More <ChevronRight size={18} />
               </button>
             </div>
@@ -92,7 +92,7 @@ const CompanyPage = () => {
           />
           <div className="container-custom relative z-20 flex justify-end">
             <div className="bg-white p-16 max-w-2xl shadow-2xl">
-              <span className="text-[#c59d5f] font-bold text-lg mb-4 block uppercase tracking-widest">OUR VISION</span>
+              <span className="text-primary font-bold text-lg mb-4 block uppercase tracking-widest">OUR VISION</span>
               <h2 className="text-5xl font-bold text-[#333] mb-8 uppercase tracking-tighter leading-tight">
                 Driving Excellence and Innovation in Business Solutions
               </h2>
@@ -113,7 +113,7 @@ const CompanyPage = () => {
           />
           <div className="container-custom relative z-20">
             <div className="bg-white p-16 max-w-2xl shadow-2xl">
-              <span className="text-[#c59d5f] font-bold text-lg mb-4 block uppercase tracking-widest">OUR MISSION</span>
+              <span className="text-primary font-bold text-lg mb-4 block uppercase tracking-widest">OUR MISSION</span>
               <h2 className="text-5xl font-bold text-[#333] mb-8 uppercase tracking-tighter leading-tight">
                 Building Trust, Delivering Value, Empowering Growth
               </h2>
@@ -129,7 +129,7 @@ const CompanyPage = () => {
       <section className="py-24 bg-white">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <span className="text-[#c59d5f] font-bold text-lg mb-4 block uppercase tracking-widest">WHY CHOOSE US</span>
+            <span className="text-primary font-bold text-lg mb-4 block uppercase tracking-widest">WHY CHOOSE US</span>
             <h2 className="text-6xl font-bold text-[#333] uppercase tracking-tighter">Your Trusted Partner in Business Success</h2>
             <p className="text-gray-500 max-w-2xl mx-auto mt-6">
               We combine years of expertise, a strong network, and a commitment to excellence to deliver tailored solutions that drive growth, efficiency, and lasting partnerships.
@@ -149,8 +149,8 @@ const CompanyPage = () => {
               { icon: <Send />, label: "Flexibility In Mode Of Delivery", dark: true },
               { icon: <Award />, label: "Dedication To The Customers", dark: false }
             ].map((item, idx) => (
-              <div key={idx} className={`${item.dark ? 'bg-[#c59d5f] text-white' : 'bg-white text-[#333] border border-gray-100'} p-12 flex flex-col items-center text-center justify-center h-80`}>
-                <div className={`${item.dark ? 'bg-white text-[#c59d5f]' : 'bg-[#c59d5f] text-white'} p-4 rounded-full mb-6`}>
+              <div key={idx} className={`${item.dark ? 'bg-primary text-white' : 'bg-white text-primary border border-gray-100'} p-12 flex flex-col items-center text-center justify-center h-80`}>
+                <div className={`${item.dark ? 'bg-white text-primary' : 'bg-primary text-white'} p-4 rounded-full mb-6`}>
                   {item.icon}
                 </div>
                 <span className="text-sm font-bold uppercase tracking-wider leading-tight">{item.label}</span>
@@ -174,7 +174,7 @@ const CompanyPage = () => {
           <p className="text-xl opacity-80 mb-10 max-w-3xl mx-auto">
             From company setup to strategic growth, we provide expert solutions tailored to your goals, ensuring a smooth journey toward success.
           </p>
-          <button className="bg-white text-[#333] px-12 py-4 font-bold uppercase tracking-widest hover:bg-[#c59d5f] hover:text-white transition-all">
+          <button className="bg-primary text-white px-12 py-4 font-bold uppercase tracking-widest hover:bg-black transition-all">
             Get Started Today
           </button>
         </div>
@@ -189,36 +189,36 @@ const CompanyPage = () => {
               <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="font-bold text-sm uppercase">Name</label>
-                  <input type="text" placeholder="Name" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-[#c59d5f]" />
+                  <input type="text" placeholder="Name" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="font-bold text-sm uppercase">Company</label>
-                  <input type="text" placeholder="Company" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-[#c59d5f]" />
+                  <input type="text" placeholder="Company" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="font-bold text-sm uppercase">Phone</label>
-                  <input type="text" placeholder="Phone" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-[#c59d5f]" />
+                  <input type="text" placeholder="Phone" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <label className="font-bold text-sm uppercase">Email</label>
-                  <input type="email" placeholder="Email" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-[#c59d5f]" />
+                  <input type="email" placeholder="Email" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary" />
                 </div>
                 <div className="flex flex-col gap-2 md:col-span-2">
                   <label className="font-bold text-sm uppercase">Subject</label>
-                  <input type="text" placeholder="Subject" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-[#c59d5f]" />
+                  <input type="text" placeholder="Subject" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary" />
                 </div>
                 <div className="flex flex-col gap-2 md:col-span-2">
                   <label className="font-bold text-sm uppercase">Message</label>
-                  <textarea rows={4} placeholder="Message" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-[#c59d5f] resize-none"></textarea>
+                  <textarea rows={4} placeholder="Message" className="bg-gray-100 p-4 rounded-sm outline-none focus:ring-2 focus:ring-primary resize-none"></textarea>
                 </div>
-                <button className="md:col-span-2 bg-[#333] text-white py-4 font-bold uppercase tracking-widest hover:bg-black transition-colors">
+                <button className="md:col-span-2 bg-primary text-white py-4 font-bold uppercase tracking-widest hover:bg-black transition-colors">
                   SEND
                 </button>
               </form>
             </div>
             
             <div className="lg:w-1/2">
-              <span className="text-[#c59d5f] font-bold text-lg mb-4 block uppercase tracking-widest">MORE INFORMATION?</span>
+              <span className="text-primary font-bold text-lg mb-4 block uppercase tracking-widest">MORE INFORMATION?</span>
               <h2 className="text-5xl font-bold text-[#333] mb-8 leading-tight">Connect with Us for Expert Business Support</h2>
               <p className="text-gray-500 text-lg mb-12 leading-relaxed">
                 Have questions or need assistance? Our team is ready to provide personalized guidance and solutions to help your business succeed. Reach out today and let's get started.
@@ -226,7 +226,7 @@ const CompanyPage = () => {
               
               <div className="space-y-8">
                 <div className="flex items-center gap-6">
-                  <div className="bg-[#c59d5f] p-6 rounded-full text-white">
+                  <div className="bg-primary p-6 rounded-full text-white">
                     <Mail size={32} />
                   </div>
                   <div>
@@ -235,7 +235,7 @@ const CompanyPage = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-6">
-                  <div className="bg-[#c59d5f] p-6 rounded-full text-white">
+                  <div className="bg-primary p-6 rounded-full text-white">
                     <Phone size={32} />
                   </div>
                   <div>
