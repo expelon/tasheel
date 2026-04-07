@@ -287,19 +287,7 @@ const Partners = () => (
       
       {/* Auto-scrolling logos container */}
       <div className="relative">
-        <div 
-          className="flex"
-          style={{
-            animation: 'scroll 30s linear infinite',
-            '@keyframes scroll': {
-              '0%': { transform: 'translateX(0)' },
-              '100%': { transform: 'translateX(-50%)' }
-            }
-          }}
-          onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'paused'}
-          onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'running'}
-        >
-          {/* First set of logos */}
+        <div className="flex md:flex-wrap md:justify-center gap-6 overflow-x-auto md:overflow-visible">
           {[
             { name: "TADBEER", logo: "/Tad-beer.jpg" },
             { name: "Fujairah Govt", logo: "/Fujairah-Coat-of-Arms-1.jpg" },
@@ -313,51 +301,17 @@ const Partners = () => (
             { name: "RTA", logo: "/Roads-and-Transport-Authority-RTA.jpg" },
             { name: "UAE Emblem", logo: "/Emblem-of-the-United-Arab-Emirates.jpg" }
           ].map((partner, idx) => (
-            <div key={idx} className="shrink-0 mx-4 md:mx-8">
+            <div key={idx} className="shrink-0">
               <img 
                 src={partner.logo} 
                 alt={partner.name} 
-                className="h-12 md:h-16 w-auto object-contain transition-all cursor-pointer"
-              />
-            </div>
-          ))}
-          
-          {/* Duplicate set for seamless scrolling */}
-          {[
-            { name: "TADBEER", logo: "/Tad-beer.jpg" },
-            { name: "Fujairah Govt", logo: "/Fujairah-Coat-of-Arms-1.jpg" },
-            { name: "Federal Authority", logo: "/Federal-authority-for-identity.jpg" },
-            { name: "Federal Tax", logo: "/Federal-tax-authority.jpg" },
-            { name: "Etihad WE", logo: "/Etihad.jpg" },
-            { name: "AFNIC", logo: "/Afnic.jpg" },
-            { name: "Emirates Gate", logo: "/Emirates-Vehicle-Gate-EVG.jpg" },
-            { name: "Fujairah Chamber", logo: "/Fujairah-Chamber-of-Commerce-and-Industry.jpg" },
-            { name: "Fujairah Transport", logo: "/Fujairah-Transport-a-transportation-service-provider.jpg" },
-            { name: "RTA", logo: "/Roads-and-Transport-Authority-RTA.jpg" },
-            { name: "UAE Emblem", logo: "/Emblem-of-the-United-Arab-Emirates.jpg" }
-          ].map((partner, idx) => (
-            <div key={`duplicate-${idx}`} className="shrink-0 mx-8">
-              <img 
-                src={partner.logo} 
-                alt={partner.name} 
-                className="h-48 object-contain transition-all cursor-pointer"
+                className="h-28 md:h-16 w-auto object-contain transition-all cursor-pointer"
               />
             </div>
           ))}
         </div>
       </div>
     </div>
-    
-    <style>{`
-      @keyframes scroll {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-    `}</style>
   </section>
 );
 
