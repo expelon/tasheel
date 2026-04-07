@@ -85,10 +85,9 @@ const CompanyPage = () => {
         {/* Vision */}
         <div className="relative min-h-[720px] md:min-h-[500px] lg:h-[600px] flex items-center py-12 md:py-0">
           <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920" 
+            src="/bg.webp" 
             alt="Vision Background" 
             className="absolute inset-0 w-full h-full object-cover"
-            referrerPolicy="no-referrer"
           />
           <div className="container-custom relative z-20 flex justify-center lg:justify-end">
             <div className="bg-white p-6 md:p-12 lg:p-16 max-w-2xl shadow-2xl mx-4">
@@ -104,12 +103,11 @@ const CompanyPage = () => {
         </div>
 
         {/* Mission */}
-        <div className="relative min-h-[720px] md:min-h-[500px] lg:h-[600px] flex items-center py-12 md:py-0">
+        <div className="relative min-h-[750px] md:min-h-[520px] lg:h-[700px] flex items-center py-12 md:py-0">
           <img 
-            src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=1920" 
+            src="/bg2.webp" 
             alt="Mission Background" 
             className="absolute inset-0 w-full h-full object-cover"
-            referrerPolicy="no-referrer"
           />
           <div className="container-custom relative z-20 flex justify-center lg:justify-start">
             <div className="bg-white p-6 md:p-12 lg:p-16 max-w-2xl shadow-2xl mx-4">
