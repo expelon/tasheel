@@ -406,12 +406,6 @@ const Partners = () => {
         .animate-scroll {
           animation: scroll 15s linear infinite;
         }
-        
-        @media (max-width: 767px) {
-          .animate-scroll {
-            animation: none;
-          }
-        }
       `}</style>
     </section>
   );
