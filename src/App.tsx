@@ -3,13 +3,81 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Phone, Mail, MapPin, ChevronRight, Facebook, Twitter, Instagram, Linkedin, Youtube, Send, Eye, Target, Award, CheckCircle2, Users, Briefcase, Building2, MessageSquare, Globe, Clock, ShieldCheck, Zap, Handshake, Menu, X, Ghost } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import CompanyPage from './components/CompanyPage';
 import ServicesPage from './components/ServicesPage';
 import GalleryPage from './components/GalleryPage';
 import ContactPage from './components/ContactPage';
+
+const AnimatedCounter = ({ target, suffix = "" }: { target: string; suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const counterRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
+  
+  useEffect(() => {
+    if (!isVisible) return;
+    
+    const numericValue = parseFloat(target.replace(/[^0-9.]/g, ''));
+    const hasPlus = target.includes('+');
+    const hasM = target.includes('M');
+    const hasPoint = target.includes('.');
+    
+    let finalValue = numericValue;
+    if (hasM) finalValue = numericValue * 1000000;
+    
+    const duration = 2000;
+    const steps = 60;
+    const increment = finalValue / steps;
+    let current = 0;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= finalValue) {
+        current = finalValue;
+        clearInterval(timer);
+      }
+      
+      let displayValue: string;
+      if (hasM) {
+        displayValue = (current / 1000000).toFixed(1);
+      } else if (hasPoint) {
+        displayValue = current.toFixed(1);
+      } else {
+        displayValue = Math.floor(current).toString();
+      }
+      
+      setCount(parseFloat(displayValue));
+    }, duration / steps);
+    
+    return () => clearInterval(timer);
+  }, [target, isVisible]);
+  
+  return (
+    <span ref={counterRef}>
+      {count}{suffix}
+    </span>
+  );
+};
 
 const TopBar = () => (
   <div className="bg-primary text-white py-2 md:py-4 px-4 text-sm font-medium">
@@ -170,13 +238,15 @@ const Stats = () => (
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {[
-            { value: "1.5M", label: "HAPPY CLIENTS", color: "bg-primary" },
-            { value: "16+", label: "YEARS OF EXPERIENCE", color: "bg-[#4a4a4a]" },
-            { value: "90+", label: "COMPANY INCORPORATION", color: "bg-primary" },
-            { value: "90+", label: "CONSULTATION", color: "bg-[#4a4a4a]" }
+            { value: "1.5M", label: "HAPPY CLIENTS", color: "bg-primary", suffix: "M" },
+            { value: "16+", label: "YEARS OF EXPERIENCE", color: "bg-[#4a4a4a]", suffix: "+" },
+            { value: "90+", label: "COMPANY INCORPORATION", color: "bg-primary", suffix: "+" },
+            { value: "90+", label: "CONSULTATION", color: "bg-[#4a4a4a]", suffix: "+" }
           ].map((stat, idx) => (
             <div key={idx} className={`${stat.color} text-white p-4 md:p-8 rounded-2xl text-center flex flex-col justify-center items-center aspect-3/2`}>
-              <span className="text-3xl md:text-5xl font-bold mb-2">{stat.value}</span>
+              <span className="text-3xl md:text-5xl font-bold mb-2">
+                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+              </span>
               <span className="text-xs md:text-sm font-bold uppercase tracking-wider">{stat.label}</span>
             </div>
           ))}
@@ -277,43 +347,75 @@ const WhyChoose = () => (
   </section>
 );
 
-const Partners = () => (
-  <section className="py-24 bg-white overflow-hidden">
-    <div className="container-custom">
-      <div className="text-center mb-16">
-        <h2 className="text-2xl md:text-4xl font-bold text-primary uppercase tracking-widest mb-2">Our Associated UAE</h2>
-        <h3 className="text-3xl md:text-6xl font-bold text-[#333] uppercase tracking-tighter">Government Departments</h3>
-      </div>
-      
-      {/* Auto-scrolling logos container */}
-      <div className="relative">
-        <div className="flex md:flex-wrap md:justify-center gap-6 overflow-x-auto md:overflow-visible">
-          {[
-            { name: "TADBEER", logo: "/Tad-beer.jpg" },
-            { name: "Fujairah Govt", logo: "/Fujairah-Coat-of-Arms-1.jpg" },
-            { name: "Federal Authority", logo: "/Federal-authority-for-identity.jpg" },
-            { name: "Federal Tax", logo: "/Federal-tax-authority.jpg" },
-            { name: "Etihad WE", logo: "/Etihad.jpg" },
-            { name: "AFNIC", logo: "/Afnic.jpg" },
-            { name: "Emirates Gate", logo: "/Emirates-Vehicle-Gate-EVG.jpg" },
-            { name: "Fujairah Chamber", logo: "/Fujairah-Chamber-of-Commerce-and-Industry.jpg" },
-            { name: "Fujairah Transport", logo: "/Fujairah-Transport-a-transportation-service-provider.jpg" },
-            { name: "RTA", logo: "/Roads-and-Transport-Authority-RTA.jpg" },
-            { name: "UAE Emblem", logo: "/Emblem-of-the-United-Arab-Emirates.jpg" }
-          ].map((partner, idx) => (
-            <div key={idx} className="shrink-0">
-              <img 
-                src={partner.logo} 
-                alt={partner.name} 
-                className="h-28 md:h-16 w-auto object-contain transition-all cursor-pointer"
-              />
+const Partners = () => {
+  return (
+    <section className="py-24 bg-white overflow-hidden">
+      <div className="container-custom">
+        <div className="text-center mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold text-primary uppercase tracking-widest mb-2">Our Associated UAE</h2>
+          <h3 className="text-3xl md:text-6xl font-bold text-[#333] uppercase tracking-tighter">Government Departments</h3>
+        </div>
+        
+        {/* Auto-scrolling logos container */}
+        <div className="relative">
+          <div className="overflow-hidden">
+            <div className="flex gap-6 animate-scroll">
+              {[
+                { name: "TADBEER", logo: "/Tad-beer.jpg" },
+                { name: "Fujairah Govt", logo: "/Fujairah-Coat-of-Arms-1.jpg" },
+                { name: "Federal Authority", logo: "/Federal-authority-for-identity.jpg" },
+                { name: "Federal Tax", logo: "/Federal-tax-authority.jpg" },
+                { name: "Etihad WE", logo: "/Etihad.jpg" },
+                { name: "AFNIC", logo: "/Afnic.jpg" },
+                { name: "Emirates Gate", logo: "/Emirates-Vehicle-Gate-EVG.jpg" },
+                { name: "Fujairah Chamber", logo: "/Fujairah-Chamber-of-Commerce-and-Industry.jpg" },
+                { name: "Fujairah Transport", logo: "/Fujairah-Transport-a-transportation-service-provider.jpg" },
+                { name: "RTA", logo: "/Roads-and-Transport-Authority-RTA.jpg" },
+                { name: "UAE Emblem", logo: "/Emblem-of-the-United-Arab-Emirates.jpg" },
+                // Duplicate for seamless scrolling
+                { name: "TADBEER", logo: "/Tad-beer.jpg" },
+                { name: "Fujairah Govt", logo: "/Fujairah-Coat-of-Arms-1.jpg" },
+                { name: "Federal Authority", logo: "/Federal-authority-for-identity.jpg" },
+                { name: "Federal Tax", logo: "/Federal-tax-authority.jpg" },
+                { name: "Etihad WE", logo: "/Etihad.jpg" },
+                { name: "AFNIC", logo: "/Afnic.jpg" }
+              ].map((partner, idx) => (
+                <div key={idx} className="shrink-0">
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name} 
+                    className="h-28 md:h-40 lg:h-56 w-auto object-contain"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+      
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .animate-scroll {
+          animation: scroll 15s linear infinite;
+        }
+        
+        @media (max-width: 767px) {
+          .animate-scroll {
+            animation: none;
+          }
+        }
+      `}</style>
+    </section>
+  );
+};
 
 const Ownership = () => (
   <section className="py-24 bg-gray-50">
