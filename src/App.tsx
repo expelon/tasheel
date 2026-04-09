@@ -358,8 +358,8 @@ const Partners = () => {
         
         {/* Auto-scrolling logos container */}
         <div className="relative">
-          <div className="overflow-hidden">
-            <div className="flex gap-6 animate-scroll">
+          <div className="overflow-x-auto md:overflow-hidden">
+            <div className="flex gap-6 animate-scroll min-w-max">
               {[
                 { name: "TADBEER", logo: "/Tad-beer.jpg" },
                 { name: "Fujairah Govt", logo: "/Fujairah-Coat-of-Arms-1.jpg" },
@@ -372,7 +372,7 @@ const Partners = () => {
                 { name: "Fujairah Transport", logo: "/Fujairah-Transport-a-transportation-service-provider.jpg" },
                 { name: "RTA", logo: "/Roads-and-Transport-Authority-RTA.jpg" },
                 { name: "UAE Emblem", logo: "/Emblem-of-the-United-Arab-Emirates.jpg" },
-                // Duplicate for seamless scrolling
+                // Duplicate for seamless scrolling on larger screens
                 { name: "TADBEER", logo: "/Tad-beer.jpg" },
                 { name: "Fujairah Govt", logo: "/Fujairah-Coat-of-Arms-1.jpg" },
                 { name: "Federal Authority", logo: "/Federal-authority-for-identity.jpg" },
